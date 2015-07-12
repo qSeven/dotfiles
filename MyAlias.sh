@@ -1,4 +1,5 @@
 alias untar='tar xvzf'
+#test
 
 Xise(){
 	if [ -f /opt/Xilinx/14.2/ISE_DS/settings64.sh ]
