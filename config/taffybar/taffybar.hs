@@ -17,14 +17,14 @@ import System.Information.CPU
 import System.Information.Battery()
 
 import qualified Data.Time.Clock as Clock
---import System.Locale
+--import Data.Time.Format.defaultTimeLocale
 
 import Graphics.UI.Gtk
 import Graphics.UI.Gtk.Display.Image
 import Graphics.UI.Gtk.Layout.HBox
 
---import Data.Colour.RGBSpace
---import Data.Colour.RGBSpace.HSL
+import Data.Colour.RGBSpace
+import Data.Colour.RGBSpace.HSL
 import Data.Time.Format
 import Data.Time.LocalTime
 
@@ -52,16 +52,16 @@ cpuCfg = defaultGraphConfig
          , graphBorderColor = (0.247, 0.247, 0.247)
          }
 
---batCfg = defaultBatteryConfig
---         { barPadding     = 3
---         , barColor       = \perc -> let (RGB r g b) =  hsl (120 * perc) 1 0.5 in (r, g, b)
---         , barBorderColor = (0.247, 0.247, 0.247)
---         , barWidth = 14
---         }
+batCfg = defaultBatteryConfig
+         { barPadding     = 3
+         , barColor       = \perc -> let (RGB r g b) =  hsl (120 * perc) 1 0.5 in (r, g, b)
+         , barBorderColor = (0.247, 0.247, 0.247)
+         , barWidth = 14
+         }
 
--- Data.Time.Format doesn't allow customizing the timezone offset,
--- so I'm implementing the clock manually.
--- (I also don't need the pop-up calendar of the default clock widget)
+---Data.Time.Format doesn't allow customizing the timezone offset,-}
+---so I'm implementing the clock manually.-}
+---(I also don't need the pop-up calendar of the default clock widget)-}
 myClock :: IO Widget
 myClock = do
   z <- getCurrentTimeZone
@@ -90,7 +90,7 @@ mpris     = mpris2New
 mem       = pollingGraphNew memCfg 1 memCallback
 cpu       = pollingGraphNew cpuCfg 0.2 cpuCallback
 tray      = systrayNew
---bat       = batteryBarNew batCfg 5
+bat       = batteryBarNew batCfg 5
 
 myPagerConfig :: PagerConfig
 myPagerConfig = PagerConfig
@@ -112,7 +112,7 @@ main = defaultTaffybar defaultTaffybarConfig
                  , myClock
                  , mem
                  , cpu
-                 --, bat
+                 , bat
                  , tray
                  -- , mailUni
                  -- , mailGmail
