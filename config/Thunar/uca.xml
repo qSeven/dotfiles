@@ -1,0 +1,13 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1448226737003406-1</unique-id>
+	<command>xfce4-terminal --hide-menubar --working-directory=%f -e fish</command>
+	<description>ExCHANGE SOMETHINGample for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>

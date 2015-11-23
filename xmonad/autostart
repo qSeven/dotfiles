@@ -1,0 +1,6 @@
+feh --bg-scale ~/.xmonad/9199Surrealist.jpg &
+dropbox-cli start &
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym Escape = Caps_lock"
+xmodmap -e "keysym Caps_Lock = Escape"
+xmodmap -e "add Lock = Caps_lock"
