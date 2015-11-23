@@ -120,8 +120,11 @@ call vundle#begin()
   Plugin 'scrooloose/syntastic'
   Plugin 'Shougo/neocomplete'
   
+  Plugin 'sophacles/vim-processing'
+
   Plugin 'Shougo/neosnippet'
   Plugin 'Shougo/neosnippet-snippets'
+  Plugin 'vim-latex/vim-latex'
   
   "" plugin from http://vim-scripts.org/vim/scripts.html
   "Plugin 'L9'
@@ -266,4 +269,4 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-
+let g:tex_flavor='latex' 
