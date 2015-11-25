@@ -4,24 +4,12 @@ import XMonad
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 import XMonad.Util.Themes
-import Data.Monoid
-import Data.Ratio
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import System.Exit
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import XMonad.Prompt.Window
 import XMonad.Actions.Warp
--- import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.EwmhDesktops (ewmh)
-import System.Taffybar.Hooks.PagerHints (pagerHints)
-
+import System.Exit
 import Graphics.X11.ExtraTypes.XF86
-
-import qualified XMonad.Actions.Submap as SM
-import qualified XMonad.Actions.Search as S
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -70,40 +58,6 @@ myBorderColor   = "#222222"
 myBorderHLight  = "#285577"
 
 myFont          = "xft:Inconsolata:pixelsize=14"
-
-myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig
-             { font        = myFont
-             , bgColor     = myBgColor
-             , fgColor     = myFgColor
-             , fgHLight    = myFgHLight
-             , bgHLight    = myBgHLight
-             , borderColor = myBorderColor
-             , position    = Top
-             }
-
-myWindowXPConfig = myXPConfig
-                   { autoComplete = Just 500000
-                   , bgColor  = "#ffdead"
-                   , fgColor  = "#666666"
-                   }
-
-mySshXPConfig = myXPConfig
-                { bgColor  = "#4682b4"
-                , fgColor  = "#eeeeee"
-                }
-
-mySearchXPConfig = myXPConfig
-                   {fgColor = "#6A6AFF"
-                   }
-
-searchEngineMap method = M.fromList $
-       [ ((0, xK_g), method S.google)
-       , ((0, xK_h), method S.hoogle)
-       , ((0, xK_d), method S.dictionary)
-       , ((0, xK_y), method S.youtube)
-       , ((0, xK_w), method S.wikipedia)
-       ]
 
 myTheme = defaultTheme {
         activeColor = blue
@@ -236,11 +190,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -345,35 +294,6 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore ]
 
 ------------------------------------------------------------------------
--- Event handling
-
--- * EwmhDesktops users should change this to ewmhDesktopsEventHook
---
--- Defines a custom handler function for X Events. The function should
--- return (All True) if the default handler is to be run afterwards. To
--- combine event hooks use mappend or mconcat from Data.Monoid.
---
-myEventHook = mempty
-
-------------------------------------------------------------------------
--- Status bars and logging
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
-
-------------------------------------------------------------------------
--- Startup hook
-
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
-myStartupHook :: X ()
-myStartupHook = return()
-------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
@@ -403,7 +323,5 @@ defaults = defaultConfig {
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook,
         startupHook        = spawn "~/.xmonad/autostart"
     }
