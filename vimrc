@@ -66,7 +66,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+  filetype plugin on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -121,9 +121,10 @@ call vundle#begin()
   Plugin 'Shougo/neocomplete'
   
   Plugin 'sophacles/vim-processing'
-
   Plugin 'Shougo/neosnippet'
   Plugin 'Shougo/neosnippet-snippets'
+
+  Plugin 'tpope/vim-fugitive'
   Plugin 'vim-latex/vim-latex'
   
   "" plugin from http://vim-scripts.org/vim/scripts.html
@@ -222,7 +223,7 @@ neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
+"<C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
@@ -269,4 +270,15 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-let g:tex_flavor='latex' 
+let g:tex_flavor='latex'
+
+"fix indenation to 4 spaces
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal softtabstop=4
+
+"need to install cpplint with pip install cpplint
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_cpp_checkers = ['cpplint']
+
+let g:syntastic_aggregate_errors = 1
