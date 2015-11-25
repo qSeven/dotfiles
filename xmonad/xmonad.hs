@@ -312,7 +312,7 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full ||| -- simpleTabbed |||
            )
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Full
+     tiled   =  Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1

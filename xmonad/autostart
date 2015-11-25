@@ -1,4 +1,4 @@
-feh --bg-scale ~/.xmonad/9199Surrealist.jpg &
+feh --bg-scale ~/.xmonad/background.jpg &
 dropbox-cli start &
 xmodmap -e "remove Lock = Caps_Lock"
 xmodmap -e "keysym Escape = Caps_lock"
