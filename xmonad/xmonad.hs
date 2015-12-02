@@ -135,7 +135,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- to open firefox  
     , ((modm,                xK_f), spawn "firefox")
-
+    -- to open thunar  
+    , ((modm .|. shiftMask, xK_t), spawn "thunar")
     -- window key + Shift + F4 to shutdown system
     , ((modm .|. shiftMask, xK_F4), spawn "sudo shutdown -h now")
     -- window key + Shift + F8 to suspend system
