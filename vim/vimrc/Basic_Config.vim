@@ -74,3 +74,9 @@ set foldmethod=syntax
 setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
+
+
+"load local config
+if filereadable('.local.vim')
+  so .local.vim
+endif
