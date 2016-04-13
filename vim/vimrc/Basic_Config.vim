@@ -80,3 +80,6 @@ setlocal softtabstop=4
 if filereadable('.local.vim')
   so .local.vim
 endif
+
+"redirect saving of swp files to one folder
+:set directory=$HOME/.vim/swapfiles//
