@@ -83,3 +83,4 @@ endif
 
 "redirect saving of swp files to one folder
 :set directory=$HOME/.vim/swapfiles//
+:set backupdir=$HOME/.vim/backupfiles//
