@@ -10,6 +10,7 @@ set backspace=indent,eol,start
 
 "number line
 set number
+set relativenumber
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -84,3 +85,4 @@ endif
 "redirect saving of swp files to one folder
 :set directory=$HOME/.vim/swapfiles//
 :set backupdir=$HOME/.vim/backupfiles//
+
