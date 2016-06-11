@@ -86,3 +86,5 @@ endif
 :set directory=$HOME/.vim/swapfiles//
 :set backupdir=$HOME/.vim/backupfiles//
 
+let g:tex_conceal= 'adgm'
+hi Conceal guibg=White guifg=DarkMagenta
