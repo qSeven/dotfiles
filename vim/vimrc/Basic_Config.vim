@@ -87,4 +87,5 @@ endif
 :set backupdir=$HOME/.vim/backupfiles//
 
 let g:tex_conceal= 'adgm'
+let conceallevel=0
 hi Conceal guibg=White guifg=DarkMagenta
