@@ -24,3 +24,15 @@ function! SyncTexForward()
     exec execstr
 endfunction
 nmap <Leader>f :call SyncTexForward()<CR>
+
+"my macros
+augroup MyIMAPs
+    au!
+    au VimEnter * call IMAP('`+', '^{\dagger}', 'tex')
+    au VimEnter * call IMAP('`*', '\cdot', 'tex')
+    au VimEnter * call IMAP('`v', '\vec{<++>}<++>', 'tex')
+    au VimEnter * call IMAP('`u', '\mu', 'tex')
+augroup END
+
+"template locations
+let g:Tex_CustomTemplateFolder = '/home/shane/Dropbox/Academic/UCR/Research/Notes_n_writeups/Latex_Tools/Templates'
