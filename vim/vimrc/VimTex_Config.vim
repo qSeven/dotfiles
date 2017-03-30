@@ -7,6 +7,10 @@ autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_au
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 
+"default compile target
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats='pdf, aux'
+
 "symbol conceal
 let g:tex_conceal= 'adgm'
 let conceallevel=0
@@ -32,6 +36,9 @@ augroup MyIMAPs
     au VimEnter * call IMAP('`*', '\cdot', 'tex')
     au VimEnter * call IMAP('`v', '\vec{<++>}<++>', 'tex')
     au VimEnter * call IMAP('`u', '\mu', 'tex')
+    au VimEnter * call IMAP('`f', '\phi', 'tex')
+    au VimEnter * call IMAP('`w', '\omega', 'tex')
+    au VimEnter * call IMAP('<<', '\left< <++> \right> <++>', 'tex')
 augroup END
 
 "template locations
