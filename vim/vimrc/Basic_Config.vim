@@ -41,6 +41,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+set foldmethod=syntax
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -63,13 +65,13 @@ if has("autocmd")
 
   augroup END
 
+  autocmd BufNewFile,BufRead *.py set foldmethod=indent
 else
 
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
-set foldmethod=syntax
 
 "fix indenation to 4 spaces
 setlocal expandtab
