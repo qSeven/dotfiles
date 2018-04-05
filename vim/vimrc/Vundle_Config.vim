@@ -9,7 +9,7 @@ call vundle#begin()
   Plugin 'sophacles/vim-processing'
 
   Plugin 'scrooloose/nerdcommenter'
-  Plugin 'scrooloose/syntastic'
+  "Plugin 'scrooloose/syntastic'
 
   Plugin 'Shougo/neocomplete'
   Plugin 'Shougo/neosnippet'
@@ -18,10 +18,14 @@ call vundle#begin()
   Plugin 'tpope/vim-fugitive'
 
   Plugin 'vim-latex/vim-latex'
+  Plugin 'bitc/vim-hdevtools'
+
+  Plugin 'w0rp/ale'
+
+  Plugin 'vim-scripts/Superior-Haskell-Interaction-Mode-SHIM'
   
   
 call vundle#end()            " required
 
 "enable file detection
 filetype plugin indent on    " required
-

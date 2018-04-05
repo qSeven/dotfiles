@@ -41,7 +41,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set foldmethod=syntax
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
