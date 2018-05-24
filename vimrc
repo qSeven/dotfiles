@@ -6,6 +6,7 @@ source $HOME/.vim/vimrc/NeoComplete_Config.vim
 "vim-latex settings
 let g:tex_flavor='latex'
 set conceallevel=0
+let g:Tex_DefaultTargetFormat='pdf'
 
 "spell check for tex files
 autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_au
